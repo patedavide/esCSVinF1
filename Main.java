@@ -1,7 +1,7 @@
 import java.io.*;
 
 class Main {
-    void main(String[] args) {
+    public static void main(String[] args) {
         // Creiamo i primi 10 piloti
         Pilota p1 = new Pilota("Lando Norris", 423, 7, 7, "McLaren", "GBR");
         Pilota p2 = new Pilota("Max Verstappen", 421, 8, 8, "Red Bull", "NLD");
