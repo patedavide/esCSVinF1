@@ -14,9 +14,9 @@ class Main {
 
             br.readLine();
 
+            System.out.println("Nome,Punti,Vittorie,Pole Position,Squadra,Nazionalita");
             while ((linea = br.readLine()) != null && nPiloti < piloti.length) {
                 String[] campi = linea.split(",");
-
                 Pilota p = new Pilota(
                         campi[0],
                         Integer.parseInt(campi[1]),
@@ -29,12 +29,12 @@ class Main {
                 piloti[nPiloti] = p;
                 nPiloti++;
 
-                String output = "Nome: " + p.getNome() +
-                        ", Punti: " + p.getPunti() +
-                        ", Vittorie: " + p.getVittorie() +
-                        ", Pole: " + p.getPolePosition() +
-                        ", Squadra: " + p.getSquadra() +
-                        ", Nazionalità: " + p.getNazionalita();
+                String output =p.getNome() + "," +
+                        p.getPunti() + "," +
+                        p.getVittorie() + "," +
+                        p.getPolePosition() + "," +
+                        p.getSquadra() + "," +
+                        p.getNazionalita();
 
                 System.out.println(output);
 
@@ -44,14 +44,30 @@ class Main {
             br.close();
             pw.close();
 
+            for (int i = 0; i < nPiloti - 1; i++) {
+                for (int j = 0; j < nPiloti - 1 - i; j++) {
+                    if (piloti[j].getVittorie() < piloti[j + 1].getVittorie()) {
+                        Pilota temp = piloti[j];
+                        piloti[j] = piloti[j + 1];
+                        piloti[j + 1] = temp;
+                    }
+                }
+            }
+
+            System.out.println("\nClassifica Piloti per Vittorie:");
+            for (int i = 0; i < nPiloti; i++) {
+                System.out.println(
+                        piloti[i].getNome() +
+                                " - Vittorie: " + piloti[i].getVittorie()
+                );
+            }
+
             RandomAccessFile raf = new RandomAccessFile("copia.csv", "rw");
             if (raf.length() > 6) {
                 raf.seek(6);
                 raf.write('*');
             }
             raf.close();
-
-            System.out.println("\nOggetti Pilota creati: " + nPiloti);
 
         } catch (IOException e) {
             System.out.println("Errore: " + e);
