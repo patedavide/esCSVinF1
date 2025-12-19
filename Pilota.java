@@ -22,6 +22,32 @@ class Pilota {
     public String toCSV() {
         return nome + "," + punti + "," + vittorie + "," + polePosition + "," + squadra + "," + nazionalita;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getPunti() {
+        return punti;
+    }
+
+    public int getVittorie() {
+        return vittorie;
+    }
+
+    public int getPolePosition() {
+        return polePosition;
+    }
+
+    public String getSquadra() {
+        return squadra;
+    }
+
+    public String getNazionalita() {
+        return nazionalita;
+    }
+
+
 }
 
 
