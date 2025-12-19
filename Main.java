@@ -14,7 +14,7 @@ class Main {
 
             br.readLine();
 
-            System.out.println("Nome,Punti,Vittorie,Pole Position,Squadra,Nazionalita");
+            System.out.println("Nome, Punti, Vittorie, Pole Position, Squadra, Nazionalita");
             while ((linea = br.readLine()) != null && nPiloti < piloti.length) {
                 String[] campi = linea.split(",");
                 Pilota p = new Pilota(
@@ -29,11 +29,11 @@ class Main {
                 piloti[nPiloti] = p;
                 nPiloti++;
 
-                String output =p.getNome() + "," +
-                        p.getPunti() + "," +
-                        p.getVittorie() + "," +
-                        p.getPolePosition() + "," +
-                        p.getSquadra() + "," +
+                String output =p.getNome() + ", " +
+                        p.getPunti() + ", " +
+                        p.getVittorie() + ", " +
+                        p.getPolePosition() + ", " +
+                        p.getSquadra() + ", " +
                         p.getNazionalita();
 
                 System.out.println(output);
